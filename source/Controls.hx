@@ -740,12 +740,67 @@ class Controls extends FlxActionSet
 		action.add(input);
 	}
 	
-	public function setHitBoxNOTES(hitbox:Hitbox) 
+	public function setHitBoxNOTES(hitbox:Hitbox, ?Type:HitboxType) 
 	{
-		inline forEachBound(Control.NOTE_UP, (action, state) -> addbuttonuNOTES(action, hitbox.buttonUp, state));
-		inline forEachBound(Control.NOTE_DOWN, (action, state) -> addbuttonuNOTES(action, hitbox.buttonDown, state));
-		inline forEachBound(Control.NOTE_LEFT, (action, state) -> addbuttonuNOTES(action, hitbox.buttonLeft, state));
-		inline forEachBound(Control.NOTE_RIGHT, (action, state) -> addbuttonuNOTES(action, hitbox.buttonRight, state));	
+	if (Type == null)
+	Type = DEFAULT;
+        
+	switch(Type){
+	case ONE:
+		inline forEachBound(Control.N4, (action, state) -> addbuttonuNOTES(action, hitbox.k1, state));
+	case TWO:
+		inline forEachBound(Control.NOTE_LEFT, (action, state) -> addbuttonuNOTES(action, hitbox.k1, state));
+		inline forEachBound(Control.NOTE_RIGHT, (action, state) -> addbuttonuNOTES(action, hitbox.k2, state));
+	case THREE:
+		inline forEachBound(Control.NOTE_LEFT, (action, state) -> addbuttonuNOTES(action, hitbox.k1, state));
+		inline forEachBound(Control.N4, (action, state) -> addbuttonuNOTES(action, hitbox.k2, state));
+		inline forEachBound(Control.NOTE_RIGHT, (action, state) -> addbuttonuNOTES(action, hitbox.k3, state));					
+	case FIVE:
+		inline forEachBound(Control.NOTE_UP, (action, state) -> addbuttonuNOTES(action, hitbox.k4, state));
+		inline forEachBound(Control.NOTE_DOWN, (action, state) -> addbuttonuNOTES(action, hitbox.k2, state));
+		inline forEachBound(Control.N4, (action, state) -> addbuttonuNOTES(action, hitbox.k3, state));
+		inline forEachBound(Control.NOTE_LEFT, (action, state) -> addbuttonuNOTES(action, hitbox.k1, state));
+		inline forEachBound(Control.NOTE_RIGHT, (action, state) -> addbuttonuNOTES(action, hitbox.k5, state));
+	case SIX:
+		inline forEachBound(Control.S0, (action, state) -> addbuttonuNOTES(action, hitbox.k1, state));
+		inline forEachBound(Control.S1, (action, state) -> addbuttonuNOTES(action, hitbox.k2, state));
+		inline forEachBound(Control.S2, (action, state) -> addbuttonuNOTES(action, hitbox.k3, state));
+		inline forEachBound(Control.S4, (action, state) -> addbuttonuNOTES(action, hitbox.k4, state));
+		inline forEachBound(Control.S5, (action, state) -> addbuttonuNOTES(action, hitbox.k5, state));
+		inline forEachBound(Control.S6, (action, state) -> addbuttonuNOTES(action, hitbox.k6, state));									
+	case SEVEN:	
+		inline forEachBound(Control.S0, (action, state) -> addbuttonuNOTES(action, hitbox.k1, state));
+		inline forEachBound(Control.S1, (action, state) -> addbuttonuNOTES(action, hitbox.k2, state));
+		inline forEachBound(Control.S2, (action, state) -> addbuttonuNOTES(action, hitbox.k3, state));
+		inline forEachBound(Control.S3, (action, state) -> addbuttonuNOTES(action, hitbox.k4, state));
+		inline forEachBound(Control.S4, (action, state) -> addbuttonuNOTES(action, hitbox.k5, state));
+		inline forEachBound(Control.S5, (action, state) -> addbuttonuNOTES(action, hitbox.k6, state));
+		inline forEachBound(Control.S6, (action, state) -> addbuttonuNOTES(action, hitbox.k7, state));
+	case EIGHT:
+		inline forEachBound(Control.N0, (action, state) -> addbuttonuNOTES(action, hitbox.k1, state));
+		inline forEachBound(Control.N1, (action, state) -> addbuttonuNOTES(action, hitbox.k2, state));
+		inline forEachBound(Control.N2, (action, state) -> addbuttonuNOTES(action, hitbox.k3, state));
+		inline forEachBound(Control.N3, (action, state) -> addbuttonuNOTES(action, hitbox.k4, state));
+		inline forEachBound(Control.N5, (action, state) -> addbuttonuNOTES(action, hitbox.k5, state));
+		inline forEachBound(Control.N6, (action, state) -> addbuttonuNOTES(action, hitbox.k6, state));
+		inline forEachBound(Control.N7, (action, state) -> addbuttonuNOTES(action, hitbox.k7, state));
+		inline forEachBound(Control.N8, (action, state) -> addbuttonuNOTES(action, hitbox.k8, state));					
+	case NINE:
+		inline forEachBound(Control.N0, (action, state) -> addbuttonuNOTES(action, hitbox.k1, state));
+		inline forEachBound(Control.N1, (action, state) -> addbuttonuNOTES(action, hitbox.k2, state));
+		inline forEachBound(Control.N2, (action, state) -> addbuttonuNOTES(action, hitbox.k3, state));
+		inline forEachBound(Control.N3, (action, state) -> addbuttonuNOTES(action, hitbox.k4, state));
+		inline forEachBound(Control.N4, (action, state) -> addbuttonuNOTES(action, hitbox.k5, state));
+		inline forEachBound(Control.N5, (action, state) -> addbuttonuNOTES(action, hitbox.k6, state));
+		inline forEachBound(Control.N6, (action, state) -> addbuttonuNOTES(action, hitbox.k7, state));
+		inline forEachBound(Control.N7, (action, state) -> addbuttonuNOTES(action, hitbox.k8, state));
+		inline forEachBound(Control.N8, (action, state) -> addbuttonuNOTES(action, hitbox.k9, state));											
+	case DEFAULT:	
+		inline forEachBound(Control.NOTE_UP, (action, state) -> addbuttonuNOTES(action, hitbox.k3, state));
+		inline forEachBound(Control.NOTE_DOWN, (action, state) -> addbuttonuNOTES(action, hitbox.k2, state));
+		inline forEachBound(Control.NOTE_LEFT, (action, state) -> addbuttonuNOTES(action, hitbox.k1, state));
+		inline forEachBound(Control.NOTE_RIGHT, (action, state) -> addbuttonuNOTES(action, hitbox.k4, state));	
+	}
 	}
 	
 	public function setVirtualPadNOTES(virtualPad:FlxVirtualPad, ?DPad:FlxDPadMode, ?Action:FlxActionMode) 
@@ -807,10 +862,10 @@ class Controls extends FlxActionSet
 	
 	public function setHitBoxUI(hitbox:Hitbox) 
 	{
-		inline forEachBound(Control.UI_UP, (action, state) -> addbuttonuUI(action, hitbox.buttonUp, state));
-		inline forEachBound(Control.UI_DOWN, (action, state) -> addbuttonuUI(action, hitbox.buttonDown, state));
-		inline forEachBound(Control.UI_LEFT, (action, state) -> addbuttonuUI(action, hitbox.buttonLeft, state));
-		inline forEachBound(Control.UI_RIGHT, (action, state) -> addbuttonuUI(action, hitbox.buttonRight, state));	
+		inline forEachBound(Control.UI_UP, (action, state) -> addbuttonuUI(action, hitbox.k3, state));
+		inline forEachBound(Control.UI_DOWN, (action, state) -> addbuttonuUI(action, hitbox.k2, state));
+		inline forEachBound(Control.UI_LEFT, (action, state) -> addbuttonuUI(action, hitbox.k1, state));
+		inline forEachBound(Control.UI_RIGHT, (action, state) -> addbuttonuUI(action, hitbox.k4, state));	
 	}
 	
 	public function setVirtualPadUI(virtualPad:FlxVirtualPad, ?DPad:FlxDPadMode, ?Action:FlxActionMode) 
