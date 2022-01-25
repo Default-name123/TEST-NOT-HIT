@@ -973,12 +973,7 @@ class PlayState extends MusicBeatState
 
 		#if mobileC
 			mcontrols = new Mobilecontrols();
-			switch (mcontrols.mode)
-			{
-				case HITBOX:
-					controls.setHitBoxNOTES(mcontrols._hitbox);
-				default:
-			}
+			controls.setHitBoxNOTES(mcontrols._hitbox);
 			trackedinputsNOTES = controls.trackedinputsNOTES;
 			controls.trackedinputsNOTES = [];
 
